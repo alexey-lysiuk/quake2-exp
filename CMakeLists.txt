@@ -2,6 +2,7 @@ cmake_minimum_required(VERSION 3.0)
 
 project(Quake2 LANGUAGES C)
 
+find_library(MATH_LIBRARY m)
 find_package(JPEG REQUIRED)
 find_package(PNG REQUIRED)
 find_package(SDL2 REQUIRED)
@@ -160,7 +161,7 @@ target_include_directories(quake2 PRIVATE
 	${SDL2_INCLUDE_DIRS}
 	${ZLIB_INCLUDE_DIRS}
 )
-target_link_libraries(quake2 PRIVATE JPEG::JPEG PNG::PNG SDL2::SDL2 ZLIB::ZLIB)
+target_link_libraries(quake2 PRIVATE ${MATH_LIBRARY} JPEG::JPEG PNG::PNG SDL2::SDL2 ZLIB::ZLIB)
 
 # TODO: optional curl support
 # find_package(CURL REQUIRED)
