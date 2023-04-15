@@ -1066,7 +1066,11 @@ static void Com_Freeze_f( void ) {
 }
 
 static void Com_Crash_f( void ) {
+#ifdef _WIN32
 	*( uint32 * )0 = 0x123456;
+#else
+	__builtin_trap();
+#endif
 }
 #endif
 
@@ -1193,7 +1197,7 @@ Qcommon_Frame
 =================
 */
 #ifdef GL_QUAKE
-extern cvar_t *cl_avidemo;
+cvar_t *cl_avidemo;
 #endif
 
 void Qcommon_Frame (int msec)

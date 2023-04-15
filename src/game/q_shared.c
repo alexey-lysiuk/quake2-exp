@@ -655,14 +655,14 @@ void COM_MakePrintable (char *s)
 	while((c = *string++) != 0)
 	{
 		switch (c) {
-		case 'å':
-		case 'ä': *s++ = 'a'; break;
-		case 'Å':
-		case 'Ä': *s++ = 'A'; break;
-		case 'ö': *s++ = 'o'; break;
-		case 'Ö': *s++ = 'O'; break;
+		case '\xE5':
+		case '\xE4': *s++ = 'a'; break;
+		case '\xC5':
+		case '\xC4': *s++ = 'A'; break;
+		case '\xF6': *s++ = 'o'; break;
+		case '\xD6': *s++ = 'O'; break;
 		case '`':
-		case '´': *s++ = '\''; break;
+		case '\xB4': *s++ = '\''; break;
 		default:	
 			if ( c >= 0x20 && c <= 0x7E )
 				*s++ = c;
