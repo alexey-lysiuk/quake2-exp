@@ -8,6 +8,10 @@ find_package(PNG REQUIRED)
 find_package(SDL2 REQUIRED)
 find_package(ZLIB REQUIRED)
 
+if(NOT DCMAKE_BUILD_TYPE)
+	set(DCMAKE_BUILD_TYPE Release)
+endif()
+
 add_library(game SHARED
 	src/game/g_ai.c
 	src/game/g_chase.c
