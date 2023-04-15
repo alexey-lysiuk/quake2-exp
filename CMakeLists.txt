@@ -41,11 +41,11 @@ add_library(game SHARED
 	src/game/m_berserk.h
 	src/game/m_boss2.c
 	src/game/m_boss2.h
+	src/game/m_boss3.c
 	src/game/m_boss31.c
 	src/game/m_boss31.h
 	src/game/m_boss32.c
 	src/game/m_boss32.h
-	src/game/m_boss3.c
 	src/game/m_brain.c
 	src/game/m_brain.h
 	src/game/m_chick.c
@@ -91,6 +91,8 @@ add_library(game SHARED
 )
 
 add_executable(quake2
+	src/client/anorms.h
+	src/client/client.h
 	src/client/cl_cin.c
 	src/client/cl_demo.c
 	src/client/cl_draw.c
@@ -108,22 +110,38 @@ add_executable(quake2
 	src/client/cl_tent.c
 	src/client/cl_view.c
 	src/client/console.c
+	src/client/input.h
 	src/client/keys.c
+	src/client/keys.h
+	src/client/mp3.h
+	src/client/ref.h
+	src/client/screen.h
 	src/client/snd_dma.c
+	src/client/snd_loc.h
 	src/client/snd_mem.c
 	src/client/snd_mix.c
+	src/client/sound.h
+	src/client/vid.h
 
+	src/game/game.h
 	src/game/m_flash.c
 	src/game/q_shared.c
+	src/game/q_shared.h
 
 	src/include/minizip/ioapi.c
+	src/include/minizip/ioapi.h
 	src/include/minizip/unzip.c
+	src/include/minizip/unzip.h
 
 	src/linux/cd_linux.c
 	src/linux/glob.c
+	src/linux/glob.h
+	src/linux/glw_linux.h
+	src/linux/q2icon.xbm
 	src/linux/qgl_linux.c
 	src/linux/q_shlinux.c
 	src/linux/rw_linux.c
+	src/linux/rw_linux.h
 	src/linux/rw_sdl.c
 	src/linux/snd_sdl.c
 	src/linux/sys_linux.c
@@ -136,22 +154,32 @@ add_executable(quake2
 	src/qcommon/cvar.c
 	src/qcommon/files.c
 	src/qcommon/md4.c
-	src/qcommon/net_chan.c
 	src/qcommon/net.c
+	src/qcommon/net_chan.c
 	src/qcommon/pmove.c
+	src/qcommon/qcommon.h
+	src/qcommon/qfiles.h
 	src/qcommon/q_msg.c
 
+	src/ref_gl/anormtab.h
+	src/ref_gl/def_pal.h
 	src/ref_gl/gl_decal.c
+	src/ref_gl/gl_decal.h
 	src/ref_gl/gl_draw.c
 	src/ref_gl/gl_image.c
 	src/ref_gl/gl_light.c
+	src/ref_gl/gl_local.h
 	src/ref_gl/gl_mesh.c
 	src/ref_gl/gl_model.c
+	src/ref_gl/gl_model.h
 	src/ref_gl/gl_rmain.c
 	src/ref_gl/gl_rmisc.c
 	src/ref_gl/gl_rsurf.c
 	src/ref_gl/gl_warp.c
+	src/ref_gl/qgl.h
+	src/ref_gl/warpsin.h
 
+	src/server/server.h
 	src/server/sv_ccmds.c
 	src/server/sv_ents.c
 	src/server/sv_game.c
@@ -173,6 +201,7 @@ add_executable(quake2
 	src/ui/ui_joinserver.c
 	src/ui/ui_keys.c
 	src/ui/ui_loadsavegame.c
+	src/ui/ui_local.h
 	src/ui/ui_main.c
 	src/ui/ui_multiplayer.c
 	src/ui/ui_newoptions.c
