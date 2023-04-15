@@ -286,7 +286,7 @@ void GetEvent(SDL_Event *event)
 
 			if (!fullscreen->integer) {
 				Cvar_SetValue( "vid_fullscreen", 1 );
-				SDL_SetWindowFullscreen(window, SDL_WINDOW_FULLSCREEN);
+				SDL_SetWindowFullscreen(window, SDL_WINDOW_FULLSCREEN_DESKTOP);
 			} else {
 				Cvar_SetValue( "vid_fullscreen", 0 );
 				SDL_SetWindowFullscreen(window, 0);
@@ -416,12 +416,12 @@ static qboolean SDLimp_InitGraphics( qboolean fullscreen )
 
 	/* Just toggle fullscreen if that's all that has been changed */
 	if (window && (windowWidth == vid.width) && (windowHeight == vid.height)) {
-		int isfullscreen = (windowFlags & SDL_WINDOW_FULLSCREEN) ? 1 : 0;
+		int isfullscreen = (windowFlags & SDL_WINDOW_FULLSCREEN_DESKTOP) ? 1 : 0;
 
 		if (fullscreen != isfullscreen)
-			SDL_SetWindowFullscreen(window, fullscreen ? SDL_WINDOW_FULLSCREEN : 0);
+			SDL_SetWindowFullscreen(window, fullscreen ? SDL_WINDOW_FULLSCREEN_DESKTOP : 0);
 
-		isfullscreen = (windowFlags & SDL_WINDOW_FULLSCREEN) ? 1 : 0;
+		isfullscreen = (windowFlags & SDL_WINDOW_FULLSCREEN_DESKTOP) ? 1 : 0;
 		if (fullscreen == isfullscreen)
 			return true;
 	}
@@ -461,7 +461,7 @@ static qboolean SDLimp_InitGraphics( qboolean fullscreen )
 #endif
 
 	if (fullscreen)
-		flags |= SDL_WINDOW_FULLSCREEN;
+		flags |= SDL_WINDOW_FULLSCREEN_DESKTOP;
 
 	window = SDL_CreateWindow(APPLICATION,
 								SDL_WINDOWPOS_UNDEFINED,

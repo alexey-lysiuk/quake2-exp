@@ -1911,10 +1911,10 @@ void FS_InitFilesystem (void)
 	FS_AddGameDirectory (va("%s/"BASEDIRNAME, fs_basedir->string));
 
 	//
-	// then add a '.quake2/baseq2' directory in home directory by default
+	// then add a '.quake2/baseq2' directory in home directory
 	//
 #ifndef _WIN32
-	fs_usehomedir = Cvar_Get ("fs_usehomedir", "1", 0);
+	fs_usehomedir = Cvar_Get ("fs_usehomedir", "0", 0);
 	if(fs_usehomedir->integer)
 		FS_AddHomeAsGameDirectory(BASEDIRNAME);
 #endif

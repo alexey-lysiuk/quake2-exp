@@ -2324,10 +2324,10 @@ void CL_WriteConfiguration (void)
 	if (cls.state == ca_uninitialized)
 		return;
 
-	Com_sprintf (path, sizeof(path),"%s/aprconfig.cfg",FS_Gamedir());
+	Com_sprintf (path, sizeof(path),"%s/config.cfg",FS_Gamedir());
 	f = fopen (path, "w");
 	if (!f) {
-		Com_Printf ("Couldn't write aprconfig.cfg.\n");
+		Com_Printf ("Couldn't write config.cfg.\n");
 		return;
 	}
 
