@@ -174,4 +174,8 @@ if(CURL_FOUND)
 	target_link_libraries(quake2 PRIVATE CURL::libcurl)
 endif()
 
-set_property(TARGET game PROPERTY LIBRARY_OUTPUT_DIRECTORY "$<TARGET_FILE_DIR:quake2>/baseq2")
+set_target_properties(game PROPERTIES
+	LIBRARY_OUTPUT_DIRECTORY "$<TARGET_FILE_DIR:quake2>/baseq2"
+	PREFIX ""
+	SUFFIX .so
+)

@@ -12,12 +12,12 @@ jobs:
         config: 
         - name: Linux Clang
           os: ubuntu-22.04
-          deps: sudo apt update && sudo apt install libjpeg-dev libpng-dev libsdl2-dev
+          deps: sudo apt update && sudo apt install libcurl4-openssl-dev libjpeg-dev libpng-dev libsdl2-dev
           cmake_args: -DCMAKE_C_COMPILER=clang
 
         - name: Linux GCC
           os: ubuntu-22.04
-          deps: sudo apt update && sudo apt install libjpeg-dev libpng-dev libsdl2-dev
+          deps: sudo apt update && sudo apt install libcurl4-openssl-dev libjpeg-dev libpng-dev libsdl2-dev
 
         - name: macOS
           os: macos-12
