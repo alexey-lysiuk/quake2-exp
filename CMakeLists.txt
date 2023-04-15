@@ -3,6 +3,7 @@ cmake_minimum_required(VERSION 3.0)
 project(Quake2 LANGUAGES C)
 
 find_library(MATH_LIBRARY m)
+find_package(CURL)
 find_package(JPEG REQUIRED)
 find_package(PNG REQUIRED)
 find_package(SDL2 REQUIRED)
@@ -167,6 +168,10 @@ target_include_directories(quake2 PRIVATE
 )
 target_link_libraries(quake2 PRIVATE ${MATH_LIBRARY} JPEG::JPEG PNG::PNG SDL2::SDL2 ZLIB::ZLIB)
 
-# TODO: optional curl support
-# find_package(CURL REQUIRED)
-# target_compile_definitions(quake2 PRIVATE USE_CURL)
+if(CURL_FOUND)
+	target_compile_definitions(quake2 PRIVATE USE_CURL)
+	target_include_directories(quake2 PRIVATE ${CURL_INCLUDE_DIRS})
+	target_link_libraries(quake2 PRIVATE CURL::libcurl)
+endif()
+
+set_property(TARGET game PROPERTY LIBRARY_OUTPUT_DIRECTORY "$<TARGET_FILE_DIR:quake2>/baseq2")
